@@ -1,24 +1,22 @@
-# Usar Usuario, Clave y Base de Datos con su propia información, por ejemplo:
-# POSTGRES_USER: gonzalezj       --->>> su apellido más la primera letra de su nombre
-# POSTGRES_PASSWORD: Jesus556    --->>> una clave que ud. elija
-# POSTGRES_DB: Prueba            --->>> la Base de Datos deberá tener el nombre de Prueba 
-
-version: '1.1'
+# Use root/example as user/password credentials
+version: '3.1'
 
 services:
 
   db:
-    image: postgres
+    image: mysql
     restart: always
     ports:
-      - "5432:5432"
+      - "3307:3306"
     environment:
-      POSTGRES_USER: gonzalezj
-      POSTGRES_PASSWORD: Jesus556
-      POSTGRES_DB: Prueba
+      MYSQL_USER: correar
+      MYSQL_PASSWORD: rodrigoc
+      MYSQL_ROOT_PASSWORD: rodricoc2
+      MYSQL_DATABASE: Prueba2
 
-  adminer:
-    image: adminer
+
+  phpmyadmin:
+    image: phpmyadmin
     restart: always
     ports:
-      - 8080:8080
+      - 8080:80
